@@ -231,6 +231,7 @@ class ContractProvider extends BaseContractProvider {
    * Queries information from the registry.
    */
   async _initContractInfo() {
+    console.log(`_initContractInfo`)
     if (!this.plasmaChainName) {
       throw new Error('ERROR: Plasma chain name not provided.')
     }

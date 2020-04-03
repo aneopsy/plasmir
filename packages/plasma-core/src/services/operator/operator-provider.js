@@ -29,9 +29,10 @@ class OperatorProvider extends BaseOperatorProvider {
   }
 
   async _onStart() {
-    this.services.contract.on('initialized', () => {
-      this._initConnection()
-    })
+    // this.services.contract.on('initialized', () => {
+    //
+    // })
+    this._initConnection()
     this._pingInterval()
   }
 
@@ -152,11 +153,10 @@ class OperatorProvider extends BaseOperatorProvider {
    */
   async _initConnection() {
     this.endpoint = await this.services.contract.operatorEndpoint
-    console.log(this.endpoint)
     this.http = axios.create({
-      baseURL: this.endpoint.startsWith('http')
+      baseURL: this.endpoint.startsWith('https')
         ? this.endpoint
-        : `https://${this.endpoint}:3000`,
+        : `http://${this.endpoint}:3000`,
     })
   }
 

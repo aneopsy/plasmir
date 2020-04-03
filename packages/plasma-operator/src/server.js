@@ -58,7 +58,7 @@ function resolveMessage(m) {
 }
 
 // Handle incoming transactions
-app.post('/api', function(req, res) {
+app.post('/', function(req, res) {
   log(
     'INCOMING RPC request with method:',
     req.body.method,

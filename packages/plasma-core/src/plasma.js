@@ -67,7 +67,6 @@ class Plasma extends EventEmitter {
       service.app = this
     }
 
-    console.log(service.name)
     // Relay lifecycle events.
     service.on('initialized', () => {
       this.emit(`${service.name}:initialized`)
