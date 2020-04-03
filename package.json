@@ -1,0 +1,45 @@
+{
+  "name": "plasmir",
+  "version": "0.0.1",
+  "description": "Plasmir monorepo",
+  "private": true,
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "pkgparse": "echo ${PKGS:-'*'} | sed -e 's#,# @plasmir/#g' -e 's#^#@plasmir/#'",
+    "lint": "wsrun -p $(yarn --silent run pkgparse) --parallel --exclude-missing lint",
+    "fix": "wsrun -p $(yarn --silent run pkgparse) --fast-exit --parallel --exclude-missing fix",
+    "clean": "wsrun -p $(yarn --silent run pkgparse) -r --fast-exit --parallel --exclude-missing clean",
+    "clean_modules": "rm -rf node_modules && find ./packages -type d -maxdepth 2 -name \"node_modules\" -exec rm -r {} +",
+    "test": "wsrun -p $(yarn --silent run pkgparse) --fast-exit --parallel --no-prefix --exclude-missing --timeout 5000 test",
+    "build": "lerna link && wsrun -p $(yarn --silent run pkgparse) -r --fast-exit --stages --exclude-missing build",
+    "all": "yarn clean && yarn build && yarn fix && yarn lint && yarn test"
+  },
+  "repository": "",
+  "keywords": [
+    "plasma",
+    "plasmir",
+    "ethereum"
+  ],
+  "author": "AneoPsy",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "lerna": "^3.13.1",
+    "mocha": "^6.0.2",
+    "prettier": "^1.16.4",
+    "wsrun": "^3.6.4"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "chai-bignumber": "^3.0.0",
+    "level": "^6.0.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "extends": ["standard", "prettier"],
+  "globals": {
+    "chrome": true,
+    "describe": true,
+    "it": true
+  }
+}

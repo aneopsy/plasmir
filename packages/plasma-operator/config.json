@@ -1,0 +1,11 @@
+{
+  "dbDir": "./operator-db",
+  "plasmaRegistryAddress": "0x017c7C0938Cfb030B79a9623BDd2a5ec43c528A9",
+  "plasmaChainName": "I <3 Plasma",
+  "operatorIpAddress": "0.0.0.0",
+  "port": "3000",
+  "finalityDepth": "1",
+  "blockTimeInSeconds": "10",
+  "ethPollInterval": "3000",
+  "web3HttpProvider": "https://ropsten.infura.io/v3/4555f203fdd84fe48e035ce53089db44"
+}

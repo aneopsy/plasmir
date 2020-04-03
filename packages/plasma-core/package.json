@@ -1,0 +1,74 @@
+{
+  "name": "@plasmir/plasma-core",
+  "version": "0.0.1",
+  "description": "Core PG plasma node",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test.unit && npm run test.integration",
+    "test.unit": "./node_modules/.bin/mocha --recursive test/unit",
+    "test.integration": "./node_modules/.bin/mocha --recursive test/integration --timeout 10000",
+    "test.coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "lint": "./node_modules/.bin/eslint src/ test/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "**/base-service.js",
+      "**/base-provider.js",
+      "**/mock-app.js"
+    ]
+  },
+  "author": "AneoPsy",
+  "devDependencies": {
+    "app-root-path": "^2.1.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.10.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "ganache-cli": "^6.2.5",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^13.1.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "async-lock": "^1.1.3",
+    "axios": "^0.18.0",
+    "debug": "^4.1.1",
+    "eth-crypto": "^1.3.2",
+    "ethereumjs-tx": "^1.3.7",
+    "lodash": "^4.17.11",
+    "@plasmir/plasma-contracts": "^0.0.1",
+    "@plasmir/plasma-utils": "^0.0.1",
+    "toposort": "^2.0.2",
+    "uuid": "^3.3.2",
+    "web3": "1.0.0-beta.33",
+    "web3-eth-abi": "^1.0.0-beta.46",
+    "websocket": "^1.0.28"
+  }
+}

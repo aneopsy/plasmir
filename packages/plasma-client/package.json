@@ -1,0 +1,60 @@
+{
+  "name": "@plasmir/plasma-client",
+  "version": "0.0.1",
+  "description": "PG Plasma full node",
+  "bin": {
+    "plasma-client": "bin/node.js",
+    "plasma-cli": "bin/cli.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive test/",
+    "lint": "./node_modules/.bin/eslint src/ test/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "author": "AneoPsy",
+  "dependencies": {
+    "async-lock": "^1.1.4",
+    "body-parser": "^1.18.3",
+    "colors": "^1.3.3",
+    "commander": "^2.19.0",
+    "express": "^4.16.4",
+    "inquirer": "^6.2.2",
+    "latest-version": "^4.0.0",
+    "leveldown": "^4.0.1",
+    "levelup": "^4.0.0",
+    "mkdirp": "^0.5.1",
+    "@plasmir/plasma-core": "^0.0.1",
+    "@plasmir/plasma-js-lib": "^0.0.1",
+    "@plasmir/plasma-utils": "^0.0.1",
+    "rimraf": "^2.6.3",
+    "web3-utils": "^1.0.0-beta.41"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^5.12.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.16.0"
+  }
+}

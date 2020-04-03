@@ -1,0 +1,19 @@
+{
+  "version": "independent",
+  "packages": [
+    "packages/plasma-client/*",
+    "packages/plasma-contracts/*",
+    "packages/plasma-core/*",
+    "packages/plasma-js-lib/*",
+    "packages/plasma-node/*",
+    "packages/plasma-operator/*",
+    "packages/plasma-utils/*"
+  ],
+  "command": {
+    "publish": {
+      "ignoreChanges": ["*.md", "*.rst", "tslint.json", "tsconfig.json"]
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
